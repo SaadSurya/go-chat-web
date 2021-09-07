@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import { Link as RouterLink, useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import env from '../env';
 
 function Copyright() {
     return (
@@ -61,7 +62,7 @@ export const SignUpPage = () => {
             alert('All field are required');
             return;
         }
-        const response = await axios.post(`${window.env.API_URL}/auth/register`, {
+        const response = await axios.post(`${env.API_URL}/auth/register`, {
             username, password, firstName, lastName
         });
         if(response.status === 200) {

@@ -1,3 +1,4 @@
+import { loadChats } from "./services/chat.service";
 
 const navigateToTab = (index, history) => {
     if (!history) return;
@@ -45,9 +46,13 @@ export const setChatsReducer = (state = {}, action) => {
         case 'MESSAGE_RECEIVED': {
             let message = action.payload.message;
             let chat = state[message.from] || state[message.to];
-            chat.from = message.from; chat.to = message.to; chat.text = message.text;
-            chat.lastMessagedAt = message.CreatedAt;
-            return state;
+            if(chat) {
+                chat.from = message.from; chat.to = message.to; chat.text = message.text;
+                chat.lastMessagedAt = message.CreatedAt;
+            } else {
+                loadChats();
+            }
+            return {...state};
         }
         default:
             return state;

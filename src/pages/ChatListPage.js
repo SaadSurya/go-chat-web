@@ -24,7 +24,7 @@ export const ChatListPage = () => {
                         <Fragment key={i}>
                             <ListItem key={i} component={Link} to={`/chat/${chat.username}`} alignItems="flex-start">
                                 <ListItemAvatar>
-                                    <Avatar alt={chat.firstName + ' ' + chat.lastName} src="/static/images/avatar/1.jpg" />
+                                    <Avatar alt={chat.firstName + ' ' + chat.lastName} />
                                 </ListItemAvatar>
                                 <ListItemText
                                     primary={chat.firstName + ' ' + chat.lastName}

@@ -9,8 +9,6 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import { LoginPage } from './pages/LoginPage';
 import { SignUpPage } from './pages/SignUpPage';
-import ws from './socket';
-import { useEffect } from 'react';
 
 function App() {
 

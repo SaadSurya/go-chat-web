@@ -14,6 +14,7 @@ import { Link as RouterLink, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 import { useToken } from '../auth/token';
+import env from '../env';
 
 function Copyright() {
     return (
@@ -62,7 +63,7 @@ export const LoginPage = () => {
             return;
         }
         try {
-            const response = await axios.post(`${window.env.API_URL}/auth/login`, {
+            const response = await axios.post(`${env.API_URL}/auth/login`, {
                 username, password
             });
             if(response.status === 200) {

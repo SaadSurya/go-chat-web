@@ -10,7 +10,6 @@ const ws = {
     connect: () => {
         if ("WebSocket" in window) {
             const claims = getClaims();
-            console.log(claims);
             // Let us open a web socket
             ws.socket = new WebSocket(`${env.WS_URL}/${claims.username}`);
 
@@ -26,9 +25,7 @@ const ws = {
             };
 
             ws.socket.onclose = function () {
-
-                // websocket is closed.
-                console.log("Connection is closed...");
+                ws.connect();
             };
         } else {
 

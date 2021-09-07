@@ -95,7 +95,7 @@ export const ChatPage = () => {
 
     useEffect(() => {
         loadMessages(dispatch, username);
-    }, [dispatch, username]);
+    }, [dispatch, username, users]);
 
     return (
         <>

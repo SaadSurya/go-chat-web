@@ -1,5 +1,6 @@
 import { messageReceived } from "./actions";
 import { getClaims } from "./auth/token";
+import env from "./env";
 import { loadChats } from "./services/chat.service";
 import { loadUsers } from "./services/user.service";
 import { store } from "./store";
@@ -11,7 +12,7 @@ const ws = {
             const claims = getClaims();
             console.log(claims);
             // Let us open a web socket
-            ws.socket = new WebSocket(`ws://localhost:8080/ws/${claims.username}`);
+            ws.socket = new WebSocket(`${env.WS_URL}/${claims.username}`);
 
             ws.socket.onopen = function () {
                 // Web Socket is connected, send data using send()
